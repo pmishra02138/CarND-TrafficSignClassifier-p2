@@ -143,5 +143,6 @@ For each of the new images, he model's softmax probabilities to show the **certa
      [  9.4316e-01   5.6839e-02   3.9206e-09   4.6434e-10   3.7211e-17]]
 
 ```
-The softmax probabilities for 4 classes are almost to 1. As pointed earlier, this could be because of similarity of web test images to the original German traffic signs dataset. for class 14 (Stop sign), the probability is just over 0.5. It will be interesting to test the model for more diverse set of images. 
+
+ The softmax probabilities for 4 classes are almost to 1. As pointed earlier, this could be because of similarity of web test images to the original German traffic signs dataset. for class 14 (Stop sign), the probability is just over 0.5. It will be interesting to test the model for more diverse set of images.
 ---
