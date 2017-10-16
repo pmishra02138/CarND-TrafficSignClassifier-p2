@@ -80,7 +80,21 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 Learning rate = 0.001,
 EPOCHS = 30
 BATCH_SIZE = 64
-we used Adam optimizer.
+I used Adam optimizer.
+
+The above architecture with these pipelines gave and accuracy of little over 93% on validation dataset.  I started with LeNet architecture that was used in the digit recognition  example. I tried following few modifications before using final architecture:
+
+- I tested this architecture for both using color images (all 3 channels) as well as grayscale version of color images (code for grayscale version is in comments). The results for color images were better than for grayscale images, so I decided to use color images.  
+
+- I normalized images by subtracting and dividing every pixel by 128. This help in making images zero mean and unit variance.
+
+- I played with EPOCHS values of 10 - 40 and I got best results for 30.
+
+- For BATCH_SIZE, I trained the model for 32 - 150 and found that 64 gave the best results.
+
+- For learning rate, I tried a range of values of 0.0009 and 0.001. 0.01 gave better result.
+
+I want to mention that, I didn't have much problem in achieving a result of 93.1%. I would like to learn more structured approaches for hyper-parameters optimization.
 
 ---
 
@@ -114,9 +128,11 @@ Calculate the accuracy for these 5 new images.
     Test Accuracy = 1.000
 ```
 
+ The most likely reason for 100% could be these test images from web are similar to the ones found in the original German dataset. It will interesting to see how model performs for more diverse images.
+
 Output Top 5 Softmax Probabilities For Each Image Found on the Web
 
-For each of the new images, print out the model's softmax probabilities to show the **certainty** of the model's predictions (limit the output to the top 5 probabilities for each image).
+For each of the new images, he model's softmax probabilities to show the **certainty** of the model's predictions are as follows:
 
 ```
 
@@ -127,4 +143,5 @@ For each of the new images, print out the model's softmax probabilities to show 
      [  9.4316e-01   5.6839e-02   3.9206e-09   4.6434e-10   3.7211e-17]]
 
 ```
+The softmax probabilities for 4 classes are almost to 1. As pointed earlier, this could be because of similarity of web test images to the original German traffic signs dataset. for class 14 (Stop sign), the probability is just over 0.5. It will be interesting to test the model for more diverse set of images. 
 ---
